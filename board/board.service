@@ -8,6 +8,7 @@ After=systemd-user-sessions.service
 Type=oneshot
 ExecStart=/usr/bin/python3 /opt/voltbro/board/board_setup.py
 Environment=PYTHONUNBUFFERED=1
+Environment=PYTHONPATH=/opt/voltbro
 TimeoutSec=20
 Restart=on-failure
 RestartSec=10

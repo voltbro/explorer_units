@@ -1,11 +1,22 @@
 import subprocess
 from systemd import journal, daemon
 
+from config import config
+
 
 def setup_can() -> bool:
     journal.send("Setting up can")
 
-    CAN_COMMAND = "ip link set {iface} up type can bitrate 1000000 dbitrate 8000000 restart-ms 1000 berr-reporting on fd on"
+    CAN_CONFIG = config["CAN"]
+    CAN_TYPE = CAN_CONFIG["type"]
+
+    if CAN_TYPE == "fd":
+        CAN_COMMAND = "ip link set {iface} up type can bitrate 1000000 dbitrate 8000000 restart-ms 1000 berr-reporting on fd on"
+    elif CAN_TYPE == "classic":
+        CAN_COMMAND = "ip link set {iface} up txqueuelen 65535 type can bitrate 1000000"
+    else:
+        journal.send(f"Unknown CAN type {CAN_TYPE}")
+        return False
 
     for iface in ("can0", "can1"):
         cmd = CAN_COMMAND.format(iface=iface)
