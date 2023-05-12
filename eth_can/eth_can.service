@@ -1,0 +1,17 @@
+[Unit]
+Description=Ethernet-CAN board communication
+Requires=vcan_config.service
+After=vcan_config.service
+
+[Service]
+Type=simple
+ExecStart=/opt/voltbro/eth_can/udp_can
+Environment=VCAN_CONFIG=/opt/voltbro/config.ini
+TimeoutSec=20
+Restart=on-failure
+RestartSec=10
+StartLimitInterval=50
+StartLimitBurst=3
+
+[Install]
+WantedBy=multi-user.target

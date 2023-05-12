@@ -1,15 +1,12 @@
 [Unit]
-Description=Board configuration service
+Description=VCAN configuration service
 Requires=network.target
 After=network.target
 After=systemd-user-sessions.service
 
 [Service]
 Type=oneshot
-ExecStart=/usr/bin/python3 /opt/voltbro/board/board_setup.py
-RemainAfterExit=yes
-Environment=PYTHONUNBUFFERED=1
-Environment=PYTHONPATH=/opt/voltbro
+ExecStart=/opt/voltbro/eth_can/start_vcan.sh
 TimeoutSec=20
 Restart=on-failure
 RestartSec=10

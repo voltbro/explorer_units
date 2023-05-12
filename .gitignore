@@ -6,11 +6,9 @@ NOTES.md
 ### IDE
 # VSCode
 .vscode/*
-!.vscode/*.sh
 !.vscode/*.json
-!.vscode/*.code-workspace
 !.vscode/*.dict
-!*.code-workspace
+!.vscode/vbcores.code-workspace
 # Xi
 default.profraw
 

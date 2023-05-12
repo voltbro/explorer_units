@@ -1,0 +1,19 @@
+
+
+[Unit]
+Description=Bosch IMU driver
+Requires=roscore.service
+After=roscore.service
+
+[Service]
+ExecStart=/opt/voltbro/ros/scripts/imu.sh
+Type=simple
+TimeoutSec=20
+Restart=on-failure
+RestartSec=5
+StartLimitInterval=50
+StartLimitBurst=3
+
+
+[Install]
+RequiredBy=ros.target
