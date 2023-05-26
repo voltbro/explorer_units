@@ -9,3 +9,5 @@ SERVICE_DEFAULTS
 
 REQUIRED_ROS
 RequiredBy=imu.service
+RequiredBy=movement_control.service
+RequiredBy=radiolink.service

@@ -1,0 +1,21 @@
+
+
+[Unit]
+Description=Radio control node
+Requires=movement_control.service
+Requires=roscore.service
+After=roscore.service
+
+[Service]
+ExecStart=/opt/voltbro/ros/scripts/radiolink.sh
+User=root
+Type=simple
+TimeoutSec=20
+Restart=on-failure
+RestartSec=5
+StartLimitInterval=50
+StartLimitBurst=3
+
+
+[Install]
+RequiredBy=ros.target

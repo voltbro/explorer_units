@@ -17,5 +17,7 @@ await link_service("eth_can", "vcan_config.service")
 await link_service("ros", "ros.target")
 await link_service("ros/services", "roscore.service")
 await link_service("ros/services", "imu.service")
+await link_service("ros/services", "movement_control.service")
+await link_service("ros/services", "radiolink.service")
 
 await $`sudo systemctl daemon-reload`

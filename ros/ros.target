@@ -2,6 +2,8 @@
 Description=ROS target
 Requires=roscore.service
 Requires=imu.service
+Requires=movement_control.service
+Requires=radiolink.service
 
 [Install]
 WantedBy=multi-user.target
