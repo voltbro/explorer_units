@@ -1,11 +1,11 @@
 import subprocess
-from systemd import journal, daemon
+from systemd import journal
 
 from config import config
 
 
 def setup_can() -> bool:
-    journal.send("Setting up can")
+    journal.send("Setting up CAN")
 
     CAN_CONFIG = config["CAN"]
     CAN_TYPE = CAN_CONFIG["type"]
@@ -13,7 +13,7 @@ def setup_can() -> bool:
     CAN_DBITRATE = CAN_CONFIG.get("dbitrate", "8000000")
 
     if CAN_TYPE == "fd":
-        CAN_COMMAND = "ip link set {iface} up type can bitrate {bitrate} dbitrate {dbitrate} restart-ms 1000 berr-reporting on fd on"
+        CAN_COMMAND = "ip link set {iface} up txqueuelen 65535 type can bitrate {bitrate} dbitrate {dbitrate} restart-ms 1000 berr-reporting on fd on"
     elif CAN_TYPE == "classic":
         CAN_COMMAND = "ip link set {iface} up txqueuelen 65535 type can bitrate {bitrate} berr-reporting on"
     else:

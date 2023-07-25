@@ -19,5 +19,7 @@ await link_service("ros/services", "roscore.service")
 await link_service("ros/services", "imu.service")
 await link_service("ros/services", "movement_control.service")
 await link_service("ros/services", "radiolink.service")
+await link_service("ros/services", "joy_node.service")
+await link_service("ros/services", "command_processor.service")
 
 await $`sudo systemctl daemon-reload`

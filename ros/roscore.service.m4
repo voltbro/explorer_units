@@ -11,3 +11,5 @@ REQUIRED_ROS
 RequiredBy=imu.service
 RequiredBy=movement_control.service
 RequiredBy=radiolink.service
+RequiredBy=joy_node.service
+RequiredBy=command_processor.service

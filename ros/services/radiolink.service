@@ -2,7 +2,8 @@
 
 [Unit]
 Description=Radio control node
-Requires=movement_control.service
+Requires=movement_control.service joy_node.service
+After=movement_control.service joy_node.service
 Requires=roscore.service
 After=roscore.service
 
@@ -19,3 +20,4 @@ StartLimitBurst=3
 
 [Install]
 RequiredBy=ros.target
+RequiredBy=command_processor.service

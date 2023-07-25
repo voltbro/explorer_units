@@ -1,5 +1,5 @@
 [Unit]
-Description=cmd_vel provider
+Description=wheels_vel provider
 REQUIRES_CORE
 
 [Service]
@@ -8,3 +8,4 @@ SERVICE_DEFAULTS
 
 REQUIRED_ROS
 RequiredBy=radiolink.service
+RequiredBy=command_processor.service

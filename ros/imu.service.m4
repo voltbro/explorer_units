@@ -1,5 +1,6 @@
 [Unit]
 Description=Bosch IMU driver
+PathExists=/dev/ttyUSB0
 REQUIRES_CORE
 
 [Service]

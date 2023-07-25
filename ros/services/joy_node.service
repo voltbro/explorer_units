@@ -1,12 +1,14 @@
 
 
 [Unit]
-Description=wheels_vel provider
+Description=ROS Joystick driver
+PathExists=/dev/input/js0
 Requires=roscore.service
 After=roscore.service
 
 [Service]
-ExecStart=/opt/voltbro/ros/scripts/movement_control.sh
+ExecStart=/opt/voltbro/ros/scripts/joy_node.sh
+User=root
 Type=simple
 TimeoutSec=20
 Restart=on-failure
@@ -17,5 +19,3 @@ StartLimitBurst=3
 
 [Install]
 RequiredBy=ros.target
-RequiredBy=radiolink.service
-RequiredBy=command_processor.service

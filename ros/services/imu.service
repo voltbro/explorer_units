@@ -2,6 +2,7 @@
 
 [Unit]
 Description=Bosch IMU driver
+PathExists=/dev/ttyUSB0
 Requires=roscore.service
 After=roscore.service
 
