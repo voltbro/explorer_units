@@ -2,7 +2,7 @@
 Description=ROS target
 Requires=roscore.service
 Requires=imu.service
-Requires=movement_control.service
+Requires=cyphal_bridge.service
 Requires=radiolink.service
 Requires=joy_node.service
 Requires=command_processor.service

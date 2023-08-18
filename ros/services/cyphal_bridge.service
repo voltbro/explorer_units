@@ -1,15 +1,12 @@
 
 
 [Unit]
-Description=Radio control node
-Requires=command_processor.service joy_node.service
-After=command_processor.service joy_node.service
+Description=wheels_vel provider
 Requires=roscore.service
 After=roscore.service
 
 [Service]
-ExecStart=/opt/voltbro/ros/scripts/radiolink.sh
-User=root
+ExecStart=/opt/voltbro/ros/scripts/cyphal_bridge.sh
 Type=simple
 TimeoutSec=20
 Restart=on-failure
@@ -20,3 +17,4 @@ StartLimitBurst=3
 
 [Install]
 RequiredBy=ros.target
+RequiredBy=command_processor.service

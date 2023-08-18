@@ -9,7 +9,7 @@ SERVICE_DEFAULTS
 
 REQUIRED_ROS
 RequiredBy=imu.service
-RequiredBy=movement_control.service
+RequiredBy=cyphal_bridge.service
 RequiredBy=radiolink.service
 RequiredBy=joy_node.service
 RequiredBy=command_processor.service
