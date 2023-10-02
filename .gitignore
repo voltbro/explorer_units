@@ -5,10 +5,10 @@ NOTES.md
 
 ### IDE
 # VSCode
-.vscode/*
+.vscode
 !.vscode/*.json
 !.vscode/*.dict
-!.vscode/vbcores.code-workspace
+!.vscode/explorer_control.code-workspace
 # Xi
 default.profraw
 
