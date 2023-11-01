@@ -22,4 +22,7 @@ await link_service("ros/services", "radiolink.service")
 await link_service("ros/services", "joy_node.service")
 await link_service("ros/services", "command_processor.service")
 
+await link_service("log_watcher", "log_watcher.timer")
+await link_service("log_watcher", "log_watcher.service")
+
 await $`sudo systemctl daemon-reload`
